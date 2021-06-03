@@ -33,6 +33,41 @@ int main(void) {
   for (int i=2000; i<5000; i++) {
     pi0 = mc_pi(i);
     if (!(fabs(pi0 - M_PI) < 0.4)) {
+      float mc_pi(int n){
+  float x,y;
+  int i=0,circle=0;
+  float z;
+  int square=0;
+  
+  float pi;
+  
+  while (i<n-1){
+   
+   x=frandom();
+   y=frandom();
+   z=x*x+y*y;
+  
+   
+   if(z<=1){
+     circle+=1;
+     square+=1;
+     }
+   else{
+     square+=1;
+   
+   i++;
+     
+   }
+   
+   }
+ 
+ pi=(float)4*circle/square;
+ return pi;
+   
+    
+  
+  
+}
       printf("Estimate with even %d iterations is %f which is not accurate enough.\n", i, pi0);
       abort();
     }
